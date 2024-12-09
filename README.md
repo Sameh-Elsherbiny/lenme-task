@@ -106,18 +106,6 @@ You can view the API documentation using Swagger by navigating to `/swagger/` in
 
 #### Serializer Example
 
-```python
-from django.utils.translation import gettext as _
-from rest_framework import serializers
-
-class MySerializer(serializers.Serializer):
-    name = serializers.CharField(max_length=100)
-
-    def validate_name(self, value):
-        if not value.isalpha():
-            raise serializers.ValidationError(_("Name must contain only letters."))
-        return value
-```
 
 Test Example
 ```

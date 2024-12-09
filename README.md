@@ -101,6 +101,24 @@ class MySerializer(serializers.Serializer):
         return value
 
 Test Example
+def test_submit_offer_insufficient_balance(self):
+    # Reduce lender's balance to below loan amount
+    self.lender_account.balance = 1000
+    self.lender_account.save()
+
+    # Log in as the lender
+    response = self.client.post('/api/token/', {'email': 'lender@email.com', 'password': 'testpassword'})
+    self.assertEqual(response.status_code, status.HTTP_200_OK)
+    token = response.data['access']
+    self.client.credentials(HTTP_AUTHORIZATION=f'Bearer {token}')
+
+    # Submit the loan offer
+    response = self.client.post('/loan/submitofferview/', self.offer_data)
+
+    # Verify the response
+    self.assertEqual(response.status_code, status.HTTP_400_BAD_REQUEST)
+    self.assertIn('Insufficient balance', response.data['non_field_errors'][0])
+
 Database Schema
 Core Models
 User

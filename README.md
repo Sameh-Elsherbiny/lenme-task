@@ -16,8 +16,8 @@
 
 1. Clone the repository:
     ```sh
-    git clone <repository-url>
-    cd <repository-directory>
+    git clone https://github.com/Sameh-Elsherbiny/lenme-task.git
+    cd lenme
     ```
 
 2. Create and activate a virtual environment:

@@ -45,6 +45,12 @@
     ```sh
     python manage.py runserver
     ```
+7. Install Redis:
+    ```sh
+    sudo apt-get update
+    sudo apt-get install redis-server
+    sudo systemctl enable redis-server.service
+    ```
 
 ### Endpoints and Models
 

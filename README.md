@@ -99,8 +99,10 @@ class MySerializer(serializers.Serializer):
         if not value.isalpha():
             raise serializers.ValidationError(_("Name must contain only letters."))
         return value
+```
 
 Test Example
+```
 def test_submit_offer_insufficient_balance(self):
     # Reduce lender's balance to below loan amount
     self.lender_account.balance = 1000
@@ -118,6 +120,8 @@ def test_submit_offer_insufficient_balance(self):
     # Verify the response
     self.assertEqual(response.status_code, status.HTTP_400_BAD_REQUEST)
     self.assertIn('Insufficient balance', response.data['non_field_errors'][0])
+
+```
 
 end test
 

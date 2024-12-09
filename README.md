@@ -52,6 +52,18 @@
     sudo systemctl enable redis-server.service
     ```
 
+### Running Celery
+
+1. Start the Celery worker:
+    ```sh
+    celery -A <your_project_name> worker --loglevel=info
+    ```
+
+2. Start the Celery Beat scheduler:
+    ```sh
+    celery -A <your_project_name> beat --loglevel=info
+    ```
+
 ### Endpoints and Models
 
 #### Endpoints

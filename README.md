@@ -99,3 +99,31 @@ class MySerializer(serializers.Serializer):
         if not value.isalpha():
             raise serializers.ValidationError(_("Name must contain only letters."))
         return value
+
+Test Example
+Database Schema
+Core Models
+User
+
+id: Primary Key
+email: Email Field
+password: CharField
+Account
+
+id: Primary Key
+balance: DecimalField
+user: ForeignKey to User
+Loan Models
+Loan
+
+id: Primary Key
+amount: DecimalField
+interest_rate: DecimalField
+borrower: ForeignKey to User
+Offer
+
+id: Primary Key
+amount: DecimalField
+lender: ForeignKey to User
+loan: ForeignKey to Loan
+

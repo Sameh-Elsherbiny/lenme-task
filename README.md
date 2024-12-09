@@ -56,12 +56,12 @@
 
 1. Start the Celery worker:
     ```sh
-    celery -A <your_project_name> worker --loglevel=info
+    celery -A project worker --loglevel=info
     ```
 
 2. Start the Celery Beat scheduler:
     ```sh
-    celery -A <your_project_name> beat --loglevel=info
+    celery -A project beat --loglevel=info
     ```
 
 ### Endpoints and Models
